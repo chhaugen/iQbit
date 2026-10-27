@@ -1,0 +1,6 @@
+{
+    "mirrors": [
+        "https://movies-api.accel.li/api/v2/",
+        "https://yts.gg/api/v2/"
+    ]
+}

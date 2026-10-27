@@ -66,6 +66,9 @@ export const typeAliases: AliasList = [
   },
 ];
 
+export const createTPBMagnetLink = (hash: string, title: string) =>
+  `magnet:?xt=urn:btih:${hash}&dn=${encodeURIComponent(title)}`;
+
 const devURL = "http://localhost:5005/";
 const useLocalServer = false;
 
@@ -180,8 +183,9 @@ const TPBSearch = (props: SearchProviderComponentProps) => {
               <TorrentDownloadBox
                 key={torr.info_hash}
                 title={torr.name}
-                magnetURL={torr.info_hash}
+                magnetURL={createTPBMagnetLink(torr.info_hash, torr.name)}
                 category={addToCategory}
+                existingTorrentHashes={props.existingTorrentHashes}
               >
                 {props.category === "Video" && (
                   <TorrentMovieData
